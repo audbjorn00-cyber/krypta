@@ -1526,12 +1526,8 @@ function postRecipe(){
   if(!name || !ingr || !steps){
     alert("Add at least: name, ingredients, steps.");
     return;
-    <label>Photo (optional)</label>
-<input id="rPhoto" type="file" accept="image/*" onchange="setRecipePhotoFromFile(this.files[0])">
-<div class="muted" id="rPhotoHint" style="margin-top:6px">Pick a photo. It will save inside the app.</div>
-<img id="rPhotoPreview" style="display:none; width:100%; max-height:220px; object-fit:cover; border-radius:16px; margin-top:10px; border:1px solid rgba(255,255,255,.10);" />
-
-  }
+    
+  
 
   const items=loadRecipes();
   items.unshift({
