@@ -482,6 +482,65 @@ MOBILE TOPBAR FIX (iPhone) CLEAN
     letter-spacing:.1em;
   }
 }
+/* =========================
+MEDIA (PHOTOS) + RECIPE GRID
+========================= */
+.mediaImg{
+  width:100%;
+  display:block;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  object-fit:cover;
+}
+
+.postMedia{
+  margin-top:10px;
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:10px;
+}
+
+.recipeGrid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:12px;
+}
+
+.recipeCard{
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(10,11,16,.55);
+  border-radius:16px;
+  overflow:hidden;
+  cursor:pointer;
+  backdrop-filter: blur(10px);
+}
+
+.recipeThumb{
+  width:100%;
+  aspect-ratio: 4 / 5;      /* tinder-ish photo shape */
+  object-fit:cover;
+  display:block;
+  background:rgba(255,255,255,.06);
+}
+
+.recipeInfo{
+  padding:10px 10px 12px;
+}
+
+.recipeName{
+  font-weight:1000;
+  font-size:13px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.recipeSub{
+  margin-top:4px;
+  font-size:12px;
+  color:var(--muted);
+}
 
 
 </style>
