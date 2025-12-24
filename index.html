@@ -422,6 +422,53 @@ DESKTOP → FORCE IPHONE LAYOUT
     width:390px;
   }
 }
+/* =========================
+MOBILE TOPBAR FIX (iPhone)
+========================= */
+@media (max-width: 520px){
+
+  .topbar{
+    padding-top: calc(14px + env(safe-area-inset-top));
+  }
+
+  .brand{
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .brandLeft{
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* status chip: single horizontal row */
+  #chipStatus{
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: nowrap;          /* STOP vertical stacking */
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+  }
+
+  #chipStatus *{
+    white-space: nowrap;
+  }
+
+  .topRight{
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  h1{
+    font-size: 22px;
+    letter-spacing: .10em;
+  }
+}
 
 </style>
 </head>
