@@ -2999,6 +2999,15 @@ function paceString(ms, distKm){
   const s=Math.round(pace%60);
   return `${m}:${String(s).padStart(2,"0")} /km`;
 }
+  function fileToDataURL(file){
+  return new Promise((resolve, reject)=>{
+    const r = new FileReader();
+    r.onload = ()=> resolve(String(r.result || ""));
+    r.onerror = reject;
+    r.readAsDataURL(file);
+  });
+}
+
 
 /* =========================
 ROUTE MODAL (for feed)
