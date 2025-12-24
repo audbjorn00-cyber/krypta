@@ -3363,39 +3363,8 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("./sw.js").catch(()=>{});
   });
 }
-/* =========================
-FIX: iPhone scroll + taps
-(does NOT remove features)
-========================= */
-html, body{
-  height: 100%;
-  overflow: hidden;              /* keep the app layout stable */
-}
 
-.app{
-  height: 100vh;
-  overflow: hidden;
-}
 
-/* THIS is the scrolling container */
-.pages{
-  overflow: auto !important;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;
-}
-
-/* Sometimes a fixed background can accidentally block taps */
-body::before{
-  pointer-events: none !important;
-}
-
-/* If any modal backdrop is accidentally "there" it can steal clicks */
-.modalBack{
-  pointer-events: none;
-}
-.modalBack[style*="display: block"],
-.modalBack[style*="display:block"]{
-  pointer-events: auto;
 }
 
 </script>
