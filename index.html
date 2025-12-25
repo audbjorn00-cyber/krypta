@@ -3418,46 +3418,13 @@ if(typeof _oldClearSelection==="function") _oldClearSelection();
 // nothing else
 };
 })();
-/* =========================
-PATCH A — Better Gym Workouts (5–8 exercises)
-========================= */
-
-(function(){
-// ACCESSORIES (2–3)
-// add a pull
-{
-const ex = pickFrom(accUpperPull, used) || pickFrom(mainUpper, used) || "Lat Pulldown";
-if(ex){ used.add(ex); blocks.push({name:ex, sets:scheme.acc, rest:rest("acc")}); }
-}
-
-// add an arms move
-{
-const ex = pickFrom(accArms, used) || "Dumbbell Curl";
-if(ex){ used.add(ex); blocks.push({name:ex, sets:scheme.acc, rest:rest("acc")}); }
-}
-
-// optional extra accessory if we still have <6 blocks
-if(blocks.length < 6){
-const ex = pickFrom(accUpperPush, used);
-if(ex){ used.add(ex); blocks.push({name:ex, sets:scheme.acc, rest:rest("acc")}); }
-}
-
-// CORE (always)
-blocks.push({name:"Core: Dead-bug / Plank", sets:scheme.core, rest:rest("core")});
-
-// FINISHER
-if(goal==="cut" || goal==="sixpack"){
-blocks.push({name:"Finisher: Kettlebell Swing", sets:"8–12 min intervals (smooth reps)", rest:"—"});
-}
-
-return blocks.slice(0,8);
-})();
-
 // PWA offline support
 if ("serviceWorker" in navigator) {
-window.addEventListener("load", () => {
-navigator.serviceWorker.register("./sw.js").catch(()=>{});
-});
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js").catch(()=>{});
+  });
+}
+
 
 
 </script>
