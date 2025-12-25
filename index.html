@@ -3188,6 +3188,11 @@ function initLocal(){
 
   // default create mode
   setCreateMode("gym");
+    // First-time onboarding
+  if(!hasCompletedOnboarding()){
+    onbStep = 0;
+    onbShow();
+  }
 }
 
 window.addEventListener("load", ()=>{
