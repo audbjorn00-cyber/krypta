@@ -604,11 +604,34 @@ RECIPES: PHOTO GRID (2 col)
 @media (max-width: 520px){
   .recipeCard{ min-height: 230px; }
 }
+/* your existing CSS above */
+
+/* =========================
+ONBOARDING (Part A)
+Splash + Create Account + Profile Setup
+========================= */
+.onbOverlay{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  background:#000;
+  display:none;
+  overflow:auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* (rest of onboarding CSS here) */
 
 </style>
 </head>
 
 <body>
+  <!-- =========================
+ONBOARDING OVERLAY (Part A)
+========================= -->
+<div class="onbOverlay" id="onbOverlay">
+  <!-- onboarding content here -->
+</div>
 <div class="app">
   <div class="topbar">
     <div class="brand">
@@ -3357,15 +3380,47 @@ Safe override: no risky template onclick injection
     // nothing else
   };
 })();
+  /* =========================
+PATCH A — Better Gym Workouts (5–8 exercises)
+========================= */
+
+(function(){
+  // ACCESSORIES (2–3)
+  // add a pull
+  {
+    const ex = pickFrom(accUpperPull, used) || pickFrom(mainUpper, used) || "Lat Pulldown";
+    if(ex){ used.add(ex); blocks.push({name:ex, sets:scheme.acc, rest:rest("acc")}); }
+  }
+
+  // add an arms move
+  {
+    const ex = pickFrom(accArms, used) || "Dumbbell Curl";
+    if(ex){ used.add(ex); blocks.push({name:ex, sets:scheme.acc, rest:rest("acc")}); }
+  }
+
+  // optional extra accessory if we still have <6 blocks
+  if(blocks.length < 6){
+    const ex = pickFrom(accUpperPush, used);
+    if(ex){ used.add(ex); blocks.push({name:ex, sets:scheme.acc, rest:rest("acc")}); }
+  }
+
+  // CORE (always)
+  blocks.push({name:"Core: Dead-bug / Plank", sets:scheme.core, rest:rest("core")});
+
+  // FINISHER
+  if(goal==="cut" || goal==="sixpack"){
+    blocks.push({name:"Finisher: Kettlebell Swing", sets:"8–12 min intervals (smooth reps)", rest:"—"});
+  }
+
+  return blocks.slice(0,8);
+})();
+
 // PWA offline support
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("./sw.js").catch(()=>{});
   });
-}
 
-
-}
 
 </script>
 </body>
